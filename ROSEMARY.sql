@@ -1,0 +1,81 @@
+/*
+ * DATABASE ROSEMARY
+ * Creted on 9 March 2017, 11:23 PM
+ * The database serves a java application that aims at connecting students and cafeterias
+    online so they can order and pay for their meals and reserve tables online.
+ */
+DROP DATABASE ROSEMARY;
+CREATE DATABASE ROSEMARY;
+USE ROSEMARY;
+
+/*
+ * the cafeterias admin Log table
+ * --- the 'PASSWORD' attribute is replaced by 'SPASSWORD', 
+ * --- for 'PASSWORD' is a reserved word in oracle.
+ */
+CREATE TABLE ADMINLOGTABLE (
+CAFE_ID VARCHAR(20) PRIMARY KEY,
+BUSINESS_NAME VARCHAR(255) ,
+PHONE CHAR(10),
+CREDIT_CARD_NUMBER VARCHAR(255),
+SPASSWORD VARCHAR(255));
+
+
+/*
+ * the Users Log table
+ * --- the 'PASSWORD' attribute is replaced by 'UPASSWORD', 
+ * --- for 'PASSWORD' is a reserved word in oracle.
+ */
+CREATE TABLE USERLOGTABLE (
+SCHOOL_ID VARCHAR(20) PRIMARY KEY,
+FIRST_NAME VARCHAR(255) ,
+SECOND_NAME VARCHAR(255) ,
+CATEGORY ENUM ('STUDENT', 'STAFF', 'FACULTY'),
+PHONE CHAR(10),
+CREDIT_CARD_NUMBER VARCHAR(255),
+UPASSWORD VARCHAR(255));
+
+
+/*
+ * the Menulist Log table
+ */
+CREATE TABLE MENULISTTABLE (
+ITEM_ID VARCHAR(20),
+ITEM_NAME VARCHAR(255) ,
+PRICE INTEGER,
+CATEGORY ENUM ('DRINKS', 'FOOD', 'SNACKS'),
+QUANTITY INTEGER,
+CAFETERIA_ID VARCHAR(255),
+CONSTRAINT pk_ITEMID PRIMARY KEY (CAFETERIA_ID,ITEM_ID),
+FOREIGN KEY (CAFETERIA_ID) REFERENCES ADMINLOGTABLE(CAFE_ID)
+ON DELETE CASCADE ON UPDATE CASCADE);
+
+
+/*
+ * the Reviews table
+ * --- the 'DATE' attribute is replaced by 'RDATE', 
+ * --- for 'DATE' is a reserved word in oracle.
+ */
+CREATE TABLE REVIEWSTABLE (
+USER_ID VARCHAR(20),
+REVIEW ENUM ('1','2','3','4','5') ,
+RDATE VARCHAR (255),
+PRIMARY KEY (USER_ID),
+FOREIGN KEY (USER_ID) REFERENCES USERLOGTABLE(SCHOOL_ID)
+ON DELETE CASCADE ON UPDATE CASCADE);
+
+/*
+ * the Order table
+ * --- the 'ORDER', 'DATE' & 'TIME' attributeS are replaced by 'OORDER', 'ODATE' & 'OTIME', 
+ * --- for 'ORDER', 'DATE' & 'TIME' are reserved words in oracle.
+ */
+CREATE TABLE ORDERTABLE (
+OORDER INTEGER AUTO_INCREMENT,
+USER_ID VARCHAR(20),
+ITEM_ID VARCHAR(20),
+QUANTITY INTEGER,
+PRICE INTEGER,
+TOTAL_COST INTEGER,
+ODATE VARCHAR (255),
+OTIME VARCHAR (255),
+PRIMARY KEY (OORDER));

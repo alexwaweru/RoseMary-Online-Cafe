@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 4, 2017, 10:01:23 PM
+    Author     : Alex Waweru
+*/
+
+#AnchorPane{
+-fx-background-image: url("Images/roselogo1.png");
+-fx-background-repeat: stretch;   
+-fx-background-size: 500 500;
+-fx-background-position: center center;
+-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}
+
+#Loginlabel
+{
+-fx-background-color: 
+        #000000,
+        linear-gradient(#b7ac42, #3e541e),
+        linear-gradient(#7f782e, #5e7f2e),
+        linear-gradient(#54501e, #88b742);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+#Loginlabel Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+
+#SignUblbl
+{
+-fx-background-color: 
+        #000000,
+        linear-gradient(#e28847, #e24754),
+        linear-gradient(#e26e47, #e24754),
+        linear-gradient(#e24747, #e24761);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+#SignUblbl {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+
+#AnchorPane2{
+-fx-background-image: url("Images/login.png");
+-fx-background-repeat: stretch;   
+-fx-background-size: 500 500;
+-fx-background-position: center center;
+-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}
+
+#Loginbtn
+{
+-fx-background-color: 
+        #000000,
+        linear-gradient(#e28847, #e24754),
+        linear-gradient(#e26e47, #e24754),
+        linear-gradient(#e24747, #e24761);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 12 30 12 30;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+#Loginbtn {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+
+#SignAslbl {
+    -fx-text-fill: blueviolet;
+    -fx-font-size: 40px;    
+}
